@@ -1,17 +1,18 @@
-
-import javax.swing.JOptionPane;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package interfaz;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Herrera
  */
-public class Principal extends javax.swing.JPanel {
+public class Principal extends javax.swing.JFrame {
 
     /**
      * Creates new form Principal
@@ -51,6 +52,8 @@ public class Principal extends javax.swing.JPanel {
         txtResultadoII = new javax.swing.JTextField();
         cdmCalcular = new javax.swing.JButton();
         cdmBorrar = new javax.swing.JButton();
+        cmbOperacion = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -68,11 +71,22 @@ public class Principal extends javax.swing.JPanel {
                 txtInversionIActionPerformed(evt);
             }
         });
+        txtInversionI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInversionIKeyTyped(evt);
+            }
+        });
         add(txtInversionI, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 60, -1));
 
         jLabel8.setFont(new java.awt.Font("JasmineUPC", 2, 24)); // NOI18N
         jLabel8.setText("Inversión II");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        txtInversionII.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInversionIIKeyTyped(evt);
+            }
+        });
         add(txtInversionII, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 60, -1));
 
         jLabel9.setFont(new java.awt.Font("JasmineUPC", 2, 24)); // NOI18N
@@ -82,6 +96,11 @@ public class Principal extends javax.swing.JPanel {
         txtInversionIII.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtInversionIIIActionPerformed(evt);
+            }
+        });
+        txtInversionIII.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInversionIIIKeyTyped(evt);
             }
         });
         add(txtInversionIII, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 60, -1));
@@ -125,12 +144,79 @@ public class Principal extends javax.swing.JPanel {
         add(cdmCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         cdmBorrar.setText("BORRAR");
+        cdmBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cdmBorrarActionPerformed(evt);
+            }
+        });
         add(cdmBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
+
+        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Porcentaje" }));
+        add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
+
+        jLabel3.setText("Operacion");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cdmCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdmCalcularActionPerformed
         // TODO add your handling code here:
-        String n1,n2,n3, resultado;
+        String n1,n2,n3 = null, resultado,res,resu;
+        double num1 = 0, num2 = 0, num3 = 0, por1, por2, por3, resul = 0;
+        int operacion;
+                
+        
+         
+        
+        
+        if (txtInversionI.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Digite la Inversión I", "Error",JOptionPane.ERROR_MESSAGE);
+        txtInversionII.requestFocusInWindow();
+        } else if (txtInversionII.getText().trim().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Digite la inversion II", "Error",JOptionPane.ERROR_MESSAGE);
+        txtInversionII.requestFocusInWindow();
+        
+        
+        
+        
+        }else {
+        num1 = Double.parseDouble(txtInversionI.getText());
+        num2 = Double.parseDouble(txtInversionII.getText());
+        num3 = Double.parseDouble(txtInversionIII.getText());
+        operacion = cmbOperacion.getSelectedIndex();
+        
+        if (operacion%3 != 0){
+            
+            switch (operacion){
+                case 0:
+                    resul = num1+num2+num3;
+                    
+                    break;
+            }
+            
+            
+            
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "No digite cero en la inversionIII", "Error",JOptionPane.ERROR_MESSAGE);
+            txtInversionIII.requestFocusInWindow();
+            txtInversionIII.selectAll();
+        }
+        
+        }
+        
+        por1= num1*100/resul;
+        por2= num2*100/resul;
+        por3= num3*100/resul;
+        
+        res= String.valueOf(por1);
+        resultado= String.valueOf(por2);
+        resu= String.valueOf(por3); 
+        txtResultadoI.setText(res);
+        txtResultadoII.setText(resultado);
+        txtResultadoIII.setText(resultado);
+        
+        
+        
         
     }//GEN-LAST:event_cdmCalcularActionPerformed
 
@@ -143,10 +229,63 @@ public class Principal extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtInversionIActionPerformed
 
+    private void cdmBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdmBorrarActionPerformed
+        // TODO add your handling code here:
+        txtInversionI.setText("");
+        txtInversionII.setText("");
+        txtInversionIII.setText("");
+        txtResultadoI.setText("");
+        txtResultadoII.setText("");
+        txtResultadoIII.setText("");
+        
+        txtInversionI.requestFocusInWindow();
+        cmbOperacion.setSelectedIndex(0);
+        
+    }//GEN-LAST:event_cdmBorrarActionPerformed
+
+    private void txtInversionIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInversionIKeyTyped
+        // TODO add your handling code here:
+        
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+          } 
+    }//GEN-LAST:event_txtInversionIKeyTyped
+
+    private void txtInversionIIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInversionIIKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();
+          }
+    }//GEN-LAST:event_txtInversionIIKeyTyped
+
+    private void txtInversionIIIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInversionIIIKeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume();
+          }
+    }//GEN-LAST:event_txtInversionIIIKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cdmBorrar;
     private javax.swing.JButton cdmCalcular;
+    private javax.swing.JComboBox<String> cmbOperacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -155,6 +294,7 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
