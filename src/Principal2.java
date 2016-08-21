@@ -104,21 +104,21 @@ public class Principal2 extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
         txtPorcentajeI.setEditable(false);
-        getContentPane().add(txtPorcentajeI, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 110, -1));
+        getContentPane().add(txtPorcentajeI, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 140, -1));
 
         jLabel11.setFont(new java.awt.Font("JasmineUPC", 2, 24)); // NOI18N
         jLabel11.setText("Porcentaje Inversión II");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 140, 20));
 
         txtPorcentajeII.setEditable(false);
-        getContentPane().add(txtPorcentajeII, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 110, -1));
+        getContentPane().add(txtPorcentajeII, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 140, -1));
 
         jLabel12.setFont(new java.awt.Font("JasmineUPC", 2, 24)); // NOI18N
         jLabel12.setText("Porcentaje Inversión III");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
 
         txtPorcentajeIII.setEditable(false);
-        getContentPane().add(txtPorcentajeIII, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 110, -1));
+        getContentPane().add(txtPorcentajeIII, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 140, -1));
 
         cdmCalcular.setText("CALCULAR");
         cdmCalcular.addActionListener(new java.awt.event.ActionListener() {
