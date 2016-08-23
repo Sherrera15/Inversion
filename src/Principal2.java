@@ -206,7 +206,7 @@ public class Principal2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         String n1,n2,n3 = null, resultado,res,res3,resS;
         double num1 = 1, num2=1, num3=1, por1, por2, por3, resul = 0;
-        int operacion;
+        
 
         if (txtInversionI.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Digite la Inversión I", "Error",JOptionPane.ERROR_MESSAGE);
@@ -214,19 +214,17 @@ public class Principal2 extends javax.swing.JFrame {
         } else if (txtInversionII.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Digite la inversion II", "Error",JOptionPane.ERROR_MESSAGE);
             txtInversionII.requestFocusInWindow();
+            if (txtInversionIII.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite la inversion III", "Error",JOptionPane.ERROR_MESSAGE);
+            txtInversionIII.requestFocusInWindow();
 
         }else {
             num1 = Double.parseDouble(txtInversionI.getText());
             num2 = Double.parseDouble(txtInversionII.getText());
             num3 = Double.parseDouble(txtInversionIII.getText());
-            operacion = cmbOperacion.getSelectedIndex();
-
-            if (operacion%3 != 0){
-
-            
-            }
             
 
+           
         }
         
             resul = num1+num2+num3;
@@ -246,7 +244,7 @@ public class Principal2 extends javax.swing.JFrame {
             txtPorcentajeIII.setText(res);
          
           
-        
+        }
     }//GEN-LAST:event_cdmCalcularActionPerformed
 
     private void cdmBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdmBorrarActionPerformed
@@ -259,7 +257,7 @@ public class Principal2 extends javax.swing.JFrame {
         txtPorcentajeIII.setText("");
 
         txtInversionI.requestFocusInWindow();
-        cmbOperacion.setSelectedIndex(0);
+       
 
     }//GEN-LAST:event_cdmBorrarActionPerformed
 
