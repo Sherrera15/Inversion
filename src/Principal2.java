@@ -204,9 +204,9 @@ public class Principal2 extends javax.swing.JFrame {
 
     private void cdmCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdmCalcularActionPerformed
         // TODO add your handling code here:
-        String n1,n2,n3 = null, resultado,res,res3,resS;
-        double num1 = 1, num2=1, num3=1, por1, por2, por3, resul = 0;
-        
+        String n1,n2 = null,n3 = null, resultado,res,res3,resS;
+        double num1 = 0, num2=0, num3=0, por1, por2, por3, resul = 0;
+        int operacion;
 
         if (txtInversionI.getText().trim().isEmpty()){
             JOptionPane.showMessageDialog(this, "Digite la Inversión I", "Error",JOptionPane.ERROR_MESSAGE);
@@ -222,8 +222,11 @@ public class Principal2 extends javax.swing.JFrame {
             num1 = Double.parseDouble(txtInversionI.getText());
             num2 = Double.parseDouble(txtInversionII.getText());
             num3 = Double.parseDouble(txtInversionIII.getText());
+            operacion = cmbOperacion.getSelectedIndex();
             
-
+         if (operacion ==3){
+                    
+         }
            
         }
         
@@ -257,7 +260,7 @@ public class Principal2 extends javax.swing.JFrame {
         txtPorcentajeIII.setText("");
 
         txtInversionI.requestFocusInWindow();
-       
+        cmbOperacion.setSelectedIndex(0);
 
     }//GEN-LAST:event_cdmBorrarActionPerformed
 
